@@ -1,5 +1,5 @@
-Shopware
-========
+Was ist Shopware?
+=================
 
 Shopware ist eine flexibel gestaltbare, leistungsfähige und skalierbare Softwarelösung, mit der Sie schnell und einfach einen Onlineshop für alle Anforderungen erstellen können.
 
@@ -17,9 +17,10 @@ Die beschreibene Konfiguration legt alle persistenten Daten auf dem Docker-Host 
 Dieses sollte gesichert werden.
 
 Installation
-------------
+============
 
-### mit `docker-compose`
+Vorbereitung für `docker-compose`
+---------------------------------
 
 Legen Sie ein Verzeichnis `shopware` auf Ihrem Docker Host an.
 Erstellen Sie darin die Datei `docker-compose.yml` mit diesem Inhalt:
@@ -69,7 +70,8 @@ Achten Sie darauf, bei `shopwaredb` und `dbclient` das gleiche Passwort zu verwe
 Für `PHPMYADMIN_PW` sollten Sie ein anderes Passwort verwenden.
 Entfernen Sie die Zeile mit `MYSQL_ROOT_PASSWORD` bei `shopwaredb` nach dem ersten Start, damit es einem Angreifer nicht als Umgebungsvariable zur Verfügung steht.
 
-### Datenbankserver anlegen und konfigurieren
+Datenbankserver anlegen und konfigurieren
+-----------------------------------------
 
 Sollten Sie einen bereits vorhandenen Datenbankserver verwenden, so müssen Sie die entsprechenden `DB_` Umgebungsvariablen einkommentieren und konfigurieren.
 Diese Anleitung geht ab jetzt davon aus, dass Sie die Datenbank als dedizierten Docker-Container betreiben, womit beispielsweise die Anforderungen an die Passwörter geringer sind, da niemand sonst auf die Datenbank zugreifen kann.
@@ -108,7 +110,8 @@ Legen Sie eine Datenbank und einen Benutzer an:
 Der Text hinter `IDENTIFIED BY` ist das Passwort.
 Sollten Sie ein anderes verwenden wollen, so müssen Sie beim Starten des Shopware-Containers die Umgebungsvariable `DB_PASSWORD` entsprechend setzen.
 
-### Shopware initialisieren
+Shopware initialisieren
+-----------------------
 
 Beim ersten Start von Shopware muss die Datenbank initialisiert werden.
 Leider werden hierbei vom Shopware-Installer die Zugangsdaten zur Datenbank nicht übernommen, so dass man sie von Hand eingeben muss.
@@ -145,7 +148,8 @@ Sollten Sie Docker nicht auf Ihrem Rechner betreiben, sondern auf einem anderen 
 1. Wählen Sie die gewünschte Lizenzart aus und klicken Sie auf "Weiter".
 1. Passen Sie die Shopware Basis-Konfiguration nach Ihren Bedürfnissen an und klicken Sie auf "Weiter", um die Einrichtung abzuschließen.
 
-### phpMyAdmin
+phpMyAdmin
+==========
 
 Um die Datenbank mit phpMyAdmin zu verwalten, muss die Umgebungsvariable `PHPMYADMIN_PW` gesetzt sein.
 Wenn sie nicht gesetzt ist, besteht keine Möglichkeit, sich an phpMyAdmin erfolgreich anzumelden.
@@ -158,6 +162,6 @@ Danach werden Sie nach den Zugangsdaten zur `shopware` Datenbank gefragt.
 Geben Sie für beides `shopware` ein, es sei denn, Sie haben etwas anderes mit `DB_PASSWORD` gesetzt.
 
 Kontakt
--------
+=======
 
 Kurt Huwig (@GMail.com: kurthuwig)
