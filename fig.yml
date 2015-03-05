@@ -1,0 +1,23 @@
+shopwaredb:
+  image: mysql:5.5
+  environment:
+   - MYSQL_ROOT_PASSWORD=bitte_aendern
+  volumes:
+   - /var/lib/docker/persistent-volumes/shopware/db:/var/lib/mysql
+
+dbclient:
+  image: mysql:5.5
+  links:
+   - shopwaredb:mysql
+  command: sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -pbitte_aendern'
+
+shopware:
+  image: kurthuwig/shopware:4.3.2-1
+  environment:
+   - PHPMYADMIN_PW=bitte_aendern
+  volumes:
+   - /var/lib/docker/persistent-volumes/shopware/shopware/var/www/html:/var/www/html
+  links:
+   - shopwaredb:db
+  ports:
+   - "80:80"
