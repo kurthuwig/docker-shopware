@@ -121,13 +121,7 @@ Shopware initialisieren
 
 Beim ersten Start von Shopware muss die Datenbank initialisiert werden.
 Leider werden hierbei vom Shopware-Installer die Zugangsdaten zur Datenbank nicht übernommen, so dass man sie von Hand eingeben muss.
-Zuerst benötigen Sie die IP-Adresse des Datenbank-Containers, den Sie im vorherigen Schritt angelegt haben.
-Geben Sie hierzu
-
-    docker inspect shopware_shopwaredb_1 | grep IPAddress
-
-ein und merken Sie sich die IP-Adresse, die normalerweise mit `172.17.` anfängt.
-Starten Sie dann den shopware Container mit
+Starten Sie den shopware Container mit
 
     docker-compose up -d shopware
 
@@ -148,7 +142,7 @@ Sollten Sie Docker nicht auf Ihrem Rechner betreiben, sondern auf einem anderen 
 
 1. Wählen Sie im ersten Schritt Ihre Sprache aus und klicken Sie auf "Weiter".
 1. Scrollen Sie im zweiten Schritt ganz nach unten und klicken Sie auf "Weiter".
-1. Geben Sie als *Datenbank Server* die gemerkte IP-Adresse ein.
+1. Geben Sie als *Datenbank Server* den Namen `db` an.
    Geben Sie als *Datenbank Benutzer*, *Datenbank Passwort* und *Datenbank Name* jeweils `shopware` ein und klicken Sie auf "Weiter"
 1. Klicken Sie im nächsten Schritt auf "Starten" und sobald die beiden Läufe fertig sind, klicken Sie auf "Weiter".
 1. Wählen Sie die gewünschte Lizenzart aus und klicken Sie auf "Weiter".
