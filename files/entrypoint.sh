@@ -6,12 +6,7 @@ if [ ! -e /var/www/html/shopware.php ]; then
     && unzip -d /var/www/html /tmp/shopware.zip \
     && chown -R www-data /var/www/html/logs/ \
                          /var/www/html/config.php \
-                         /var/www/html/cache/general/ \
-                         /var/www/html/cache/html/ \
-                         /var/www/html/cache/templates/ \
-                         /var/www/html/cache/proxies/ \
-                         /var/www/html/cache/doctrine/* \
-                         /var/www/html/cache/mpdf/* \
+                         /var/www/html/cache \
                          /var/www/html/files/* \
                          /var/www/html/engine/Shopware/Plugins/Community/ \
                          /var/www/html/engine/Shopware/Plugins/Default/ \
