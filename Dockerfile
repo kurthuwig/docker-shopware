@@ -21,8 +21,8 @@ RUN a2enmod rewrite \
     && php5enmod mcrypt
 
 # Install Shopware
-# COPY files/install_5.0.1_2ec5c1c8427afdc5654aec88bf51a80db93304ef.zip /tmp/shopware.zip
-ADD http://releases.s3.shopware.com.s3.amazonaws.com/install_5.0.1_2ec5c1c8427afdc5654aec88bf51a80db93304ef.zip /tmp/shopware.zip
+# COPY files/install_5.1.4_2a6c1d025af042525558ba10d738eeb19ed75ff4.zip /tmp/shopware.zip
+ADD http://releases.s3.shopware.com.s3.amazonaws.com/install_5.1.4_2a6c1d025af042525558ba10d738eeb19ed75ff4.zip /tmp/shopware.zip
 
 # Install ioncube
 # COPY files/ioncube_loaders_lin_x86-64.tar.bz2 /tmp/ioncube_loaders_lin_x86-64.tar.bz2
