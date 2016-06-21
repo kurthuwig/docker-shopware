@@ -4,13 +4,7 @@ if [ ! -e /var/www/html/shopware.php ]; then
     echo "Shopware not found, installing..."
     rm -f /var/www/html/index.html \
     && unzip -d /var/www/html /tmp/shopware.zip \
-    && chown -R www-data /var/www/html/logs/ \
-                         /var/www/html/config.php \
-                         /var/www/html/cache \
-                         /var/www/html/files/* \
-                         /var/www/html/engine/Shopware/Plugins/Community/ \
-                         /var/www/html/engine/Shopware/Plugins/Default/ \
-                         /var/www/html/media/*
+    && chown -R www-data /var/www/html/*
     echo "done"
 fi
 if [ -f /etc/apache2/phpmyadmin.htpasswd ]
