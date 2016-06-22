@@ -9,10 +9,10 @@ dbclient:
   image: mysql:5.5
   links:
    - shopwaredb:mysql
-  command: sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -pbitte_aendern'
+  command: sh -c 'exec mysql -h"$$MYSQL_PORT_3306_TCP_ADDR" -P"$$MYSQL_PORT_3306_TCP_PORT" -uroot -pbitte_aendern'
 
 shopware:
-  image: kurthuwig/shopware:5.0.1-1
+  image: kurthuwig/shopware:latest
   environment:
    - PHPMYADMIN_PW=bitte_aendern
   volumes:

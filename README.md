@@ -32,12 +32,12 @@ Erstellen Sie darin die Datei `docker-compose.yml` mit diesem Inhalt:
 
     shopwaredb:
       image: mysql:5.5
-      
+
       environment:
        # hier bitte ein eigenes Passwort verwenden
        # Nach dem ersten Start bitte das Passwort entfernen, da es sonst als Umgebungsvariable für einen Angreifer zugreifbar wäre
        - MYSQL_ROOT_PASSWORD=bitte_aendern
-       
+
       volumes:
        - /var/lib/docker/persistent-volumes/shopware/db:/var/lib/mysql
 
@@ -45,24 +45,24 @@ Erstellen Sie darin die Datei `docker-compose.yml` mit diesem Inhalt:
       image: mysql:5.5
       links:
        - shopwaredb:mysql
-      
+
       # hier bitte das gleiche Passwort, wie bei shopwaredb angeben
       command: sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -pbitte_aendern'
 
     shopware:
-      image: kurthuwig/shopware:4.3.2-1
-      
+      image: kurthuwig/shopware:latest
+
       environment:
        # hier bitte ein eigenes Passwort verwenden
        - PHPMYADMIN_PW=bitte_aendern
-       
+
        # Vorgabewerte für den Datenbankzugriff
        # - DB_USER=shopware
        # - DB_PASSWORD=shopware
        # - DB_DATABASE=shopware
        # - DB_HOST=
        # - DB_PORT=3306
-       
+
       volumes:
        - /var/lib/docker/persistent-volumes/shopware/shopware/var/www/html:/var/www/html
       links:

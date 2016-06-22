@@ -1,18 +1,43 @@
 #!/bin/bash
 
 if [ ! -e /var/www/html/shopware.php ]; then
-    echo "Shopware not found, installing..."
+    echo -n "Shopware not found, installing..."
     rm -f /var/www/html/index.html \
-    && unzip -d /var/www/html /tmp/shopware.zip \
-    && chown -R www-data /var/www/html/logs/ \
-                         /var/www/html/config.php \
-                         /var/www/html/cache \
-                         /var/www/html/files/* \
-                         /var/www/html/engine/Shopware/Plugins/Community/ \
-                         /var/www/html/engine/Shopware/Plugins/Default/ \
-                         /var/www/html/media/*
+    && unzip -d /var/www/html /tmp/shopware.zip || exit 1
     echo "done"
 fi
+
+echo -n "Setting permissions..."
+for i in logs/ \
+              config.php \
+              var/log/ \
+              var/cache/ \
+              web/cache/ \
+              files/documents/ \
+              files/downloads/ \
+              recovery/ \
+              engine/Shopware/Plugins/Community/ \
+              engine/Shopware/Plugins/Community/Frontend \
+              engine/Shopware/Plugins/Community/Core \
+              engine/Shopware/Plugins/Community/Backend \
+              engine/Shopware/Plugins/Default/ \
+              engine/Shopware/Plugins/Default/Frontend \
+              engine/Shopware/Plugins/Default/Core \
+              engine/Shopware/Plugins/Default/Backend \
+              themes/Frontend \
+              media/archive/ \
+              media/image/ \
+              media/image/thumbnail/ \
+              media/music/ \
+              media/pdf/ \
+              media/unknown/ \
+              media/video/ \
+              media/temp/ \
+              recovery/install/data; do
+      chown www-data /var/www/html/$i
+done
+echo "done"
+
 if [ -f /etc/apache2/phpmyadmin.htpasswd ]
 then
   HTPASSWD_OPTS=-Bbi
@@ -24,7 +49,7 @@ if [ -n "$PHPMYADMIN_PW" ]; then
     htpasswd -Bbc /etc/apache2/phpmyadmin.htpasswd phpmyadmin "${PHPMYADMIN_PW}"
 fi
 
-cat > /var/www/html/config.php << EOF 
+cat > /var/www/html/config.php << EOF
 <?php
 return array(
     'db' => array(
