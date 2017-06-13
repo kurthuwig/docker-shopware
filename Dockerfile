@@ -26,7 +26,8 @@ RUN a2enmod rewrite \
 
 # Install Shopware
 # COPY files/install_5.1.6_04ec396ac8d2fa8c1e088bc2bd2c8132ab56c270.zip /tmp/shopware.zip
-ADD http://releases.s3.shopware.com.s3.amazonaws.com/install_5.2.4_b1a52d04c9c8cd60205c181eb7d51aa5a516bff0.zip /tmp/shopware.zip
+#ADD  http://releases.s3.shopware.com.s3.amazonaws.com/install_5.2.4_b1a52d04c9c8cd60205c181eb7d51aa5a516bff0.zip /tmp/shopware.zip
+ADD http://releases.s3.shopware.com.s3.amazonaws.com/install_5.3.0_RC1_6f9db3a81a1b8bf2cd6a442e952f881c443091ff.zip?_ga=2.16608628.357092293.1497192711-1849617745.1493720407 /tmp/shopware.zip
 
 # Install ioncube
 # COPY files/ioncube_loaders_lin_x86-64.tar.bz2 /tmp/ioncube_loaders_lin_x86-64.tar.bz2
