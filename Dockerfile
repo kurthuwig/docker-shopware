@@ -25,16 +25,15 @@ RUN a2enmod rewrite \
     && phpenmod mcrypt
 
 # Install Shopware
-# COPY files/install_5.2.27_56d5aabc56c2e48d84084d0381a72a3897d5263f.zip /tmp/shopware.zip
-ADD http://releases.s3.shopware.com.s3.amazonaws.com/install_5.2.27_56d5aabc56c2e48d84084d0381a72a3897d5263f.zip /tmp/shopware.zip
+# COPY files/install_5.3.2_5ab7c48a261445eaeb25273cb34c1a6ae3102741.zip /tmp/shopware.zip
+ADD http://releases.s3.shopware.com.s3.amazonaws.com/install_5.3.2_5ab7c48a261445eaeb25273cb34c1a6ae3102741.zip /tmp/shopware.zip
 
 # Install ioncube
-# COPY files/ioncube_loaders_lin_x86-64.tar.bz2 /tmp/ioncube_loaders_lin_x86-64.tar.bz2
-ADD https://www.ioncube.com/php7-linux-x86-64-beta8.tgz /tmp/
-RUN tar xvzfC /tmp/php7-linux-x86-64-beta8.tgz /tmp/ \
-    && rm /tmp/php7-linux-x86-64-beta8.tgz \
+ADD https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz /tmp/
+RUN tar xvzfC /tmp/ioncube_loaders_lin_x86-64.tar.gz /tmp/ \
+    && rm /tmp/ioncube_loaders_lin_x86-64.tar.gz \
     && mkdir -p /usr/local/ioncube \
-    && cp /tmp/ioncube_loader_lin_x86-64_7.0b8.so /usr/local/ioncube \
+    && cp /tmp/ioncube/ioncube_loader_lin_7.0.so /usr/local/ioncube \
     && rm -rf /tmp/ioncube
 COPY files/00-ioncube.ini /etc/php/7.0/apache2/conf.d/00-ioncube.ini
 COPY files/00-ioncube.ini /etc/php/7.0/cli/conf.d/00-ioncube.ini
