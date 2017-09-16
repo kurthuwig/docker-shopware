@@ -16,6 +16,7 @@ for i in logs/ \
               files/documents/ \
               files/downloads/ \
               recovery/ \
+              custom/plugins/ \
               engine/Shopware/Plugins/Community/ \
               engine/Shopware/Plugins/Community/Frontend \
               engine/Shopware/Plugins/Community/Core \
@@ -31,6 +32,7 @@ for i in logs/ \
               media/music/ \
               media/pdf/ \
               media/unknown/ \
+              media/vector/ \
               media/video/ \
               media/temp/ \
               recovery/install/data; do
