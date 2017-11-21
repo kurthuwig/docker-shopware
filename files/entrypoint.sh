@@ -36,7 +36,7 @@ for i in logs/ \
               media/video/ \
               media/temp/ \
               recovery/install/data; do
-      chown www-data /var/www/html/$i
+      [ -e /var/www/html/$i ] && chown www-data /var/www/html/$i
 done
 echo "done"
 
